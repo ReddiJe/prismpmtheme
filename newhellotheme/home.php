@@ -6,18 +6,15 @@
         padding-left: 10%;
         padding-right: 10%;
     }
-
     .search-form {
         text-align: center;
         margin-bottom: 20px;
     }
-
     .search-form input[type="search"] {
         padding: 8px;
         width: 60%;
         font-size: 16px;
     }
-
     .custom-posts .post {
         display: flex;
         margin-bottom: 20px;
@@ -96,64 +93,68 @@
         text-decoration: underline;
     }
 
-    .post-categories,
-    .post-tags {
+    .post-categories, .post-tags {
         font-size: 16px;
         color: #555;
     }
 
-    .post-categories a,
-    .post-tags a {
+    .post-categories a, .post-tags a {
         color: #2c2d2c;
         text-decoration: none;
     }
 
-    .post-categories a,
-    .post-tags a {
-        align-items: center;
-        background-color: #FFFFFF;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        border-radius: .25rem;
-        box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    .post-categories a:hover, .post-tags a:hover {
+        text-decoration: underline;
+    }
+
+    /* Стиль для кнопок категорий */
+    .button-4 {
+        appearance: none;
+        background-color: #FAFBFC;
+        border: 1px solid rgba(27, 31, 35, 0.15);
+        border-radius: 6px;
+        box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
         box-sizing: border-box;
-        color: rgba(0, 0, 0, 0.85);
+        color: #24292E;
         cursor: pointer;
-        display: inline-flex;
-        font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 16px;
-        font-weight: 600;
-        justify-content: center;
-        line-height: 1.25;
-        margin: 0;
-        min-height: 3rem;
-        padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+        display: inline-block;
+        font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        list-style: none;
+        padding: 6px 16px;
         position: relative;
-        text-decoration: none;
-        transition: all 250ms;
+        transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
         user-select: none;
         -webkit-user-select: none;
         touch-action: manipulation;
-        vertical-align: baseline;
-        width: auto;
+        vertical-align: middle;
+        white-space: nowrap;
+        word-wrap: break-word;
     }
 
-    .post-tags a:hover,
-    .post-tags a:focus {
-        border-color: rgba(0, 0, 0, 0.15);
-        box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-        color: rgba(0, 0, 0, 0.65);
+    .button-4:hover {
+        background-color: #F3F4F6;
+        text-decoration: none;
+        transition-duration: 0.1s;
     }
 
-    .post-tags a:hover {
-        transform: translateY(-1px);
+    .button-4:disabled {
+        background-color: #FAFBFC;
+        border-color: rgba(27, 31, 35, 0.15);
+        color: #959DA5;
+        cursor: default;
     }
 
-    .post-tags a:active {
-        background-color: #F0F0F1;
-        border-color: rgba(0, 0, 0, 0.15);
-        box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
-        color: rgba(0, 0, 0, 0.65);
-        transform: translateY(0);
+    .button-4:active {
+        background-color: #EDEFF2;
+        box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+        transition: none 0s;
+    }
+
+    .button-4:focus {
+        outline: 1px transparent;
     }
 </style>
 
@@ -165,13 +166,14 @@
         </div>
 
         <div class="post-categories">
-            <h3>categories:</h3>
+            <h3>Categories:</h3>
             <?php
             $categories = get_categories();
             if ($categories) :
                 echo '<p>';
                 foreach ($categories as $category) :
-                    echo '<li><a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a></li>';
+                    // Выводим каждую категорию как кнопку
+                    echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="button-4">' . esc_html($category->name) . '</a> ';
                 endforeach;
                 echo '</p>';
             endif;
@@ -213,7 +215,7 @@
                             <?php
                             $tags = get_the_tags();
                             if ($tags) :
-                                echo '<h3>Теги:</h3><ul>';
+                                echo '<h3>Tags:</h3><ul>';
                                 foreach ($tags as $tag) :
                                     echo '<li><a href="' . esc_url(get_tag_link($tag->term_id)) . '">' . esc_html($tag->name) . '</a></li>';
                                 endforeach;
