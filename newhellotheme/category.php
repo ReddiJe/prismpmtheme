@@ -142,24 +142,54 @@
         flex-wrap: wrap;
     }
 
-    /* Новый стиль для анимации линии */
-    .post-categories a::after {
+    /* Кнопка с эффектом */
+    .btn-2 {
+        letter-spacing: 0;
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: transparent;
+        border: 1px solid #0073aa;
+        color: #0073aa;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-2:hover,
+    .btn-2:active {
+        letter-spacing: 5px;
+        color: #fff;
+        background-color: #0073aa;
+    }
+
+    .btn-2:after,
+    .btn-2:before {
         content: "";
         position: absolute;
-        bottom: -5px;
+        bottom: 0px;
         left: 50%;
         width: 0;
         height: 2px;
-        background-color: #0073aa;
-        transition: width 0.3s ease, left 0.3s ease;
+        background-color: #fff;
+        transition: all 280ms ease-in-out;
         transform: translateX(-50%);
     }
 
-    .post-categories a:hover::after {
-        width: 100%;
-        left: 0;
+    .btn-2:hover:after,
+    .btn-2:hover:before {
+        width: 70%;
+        left: 50%;
     }
 
+    .btn-2:hover:before {
+        bottom: auto;
+        top: 0;
+        width: 70%;
+    }
 </style>
 
 <div class="content">
@@ -173,7 +203,7 @@
                 echo '<p>';
                 foreach ($categories as $category) :
                     $class = (is_category($category->term_id)) ? 'active-category' : '';
-                    echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="button-55 ' . $class . '">' . esc_html($category->name) . '</a> ';
+                    echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="btn-2 ' . $class . '">' . esc_html($category->name) . '</a> ';
                 endforeach;
                 echo '</p>';
             endif;
