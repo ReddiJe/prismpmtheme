@@ -127,18 +127,6 @@
         text-decoration: none;
     }
 
-    .post-categories a.active-category {
-        color: #fff;
-        background-color: #093D5F;
-        padding: 5px 10px;
-        border-radius: 5px;
-        text-decoration: none;
-    }
-
-    .post-categories a.active-category:hover {
-        background-color: #005f8d;
-    }
-
     .custom-posts .post-categories {
         display: flex;
         flex-direction: column;
@@ -191,6 +179,11 @@
 
     .button-55:focus {
         box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+    }
+
+    .post-categories a.active-category {
+        box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+        transform: translate3d(0, 2px, 0);
     }
 </style>
 
