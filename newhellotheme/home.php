@@ -6,15 +6,18 @@
         padding-left: 10%;
         padding-right: 10%;
     }
+
     .search-form {
         text-align: center;
         margin-bottom: 20px;
     }
+
     .search-form input[type="search"] {
         padding: 8px;
         width: 60%;
         font-size: 16px;
     }
+
     .custom-posts .post {
         display: flex;
         margin-bottom: 20px;
@@ -93,41 +96,84 @@
         text-decoration: underline;
     }
 
-    /* Стиль для категории и тегов */
-    .post-categories, .post-tags {
-        font-size: 14px;
+    .post-categories,
+    .post-tags {
+        font-size: 16px;
         color: #555;
     }
 
-    .post-categories a, .post-tags a {
-        color: #0073aa;
+    .post-categories a,
+    .post-tags a {
+        color: #2c2d2c;
         text-decoration: none;
     }
 
-    .post-categories a:hover, .post-tags a:hover {
-        text-decoration: underline;
+    .post-categories a,
+    .post-tags a {
+        align-items: center;
+        background-color: #FFFFFF;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: .25rem;
+        box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+        box-sizing: border-box;
+        color: rgba(0, 0, 0, 0.85);
+        cursor: pointer;
+        display: inline-flex;
+        font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        justify-content: center;
+        line-height: 1.25;
+        margin: 0;
+        min-height: 3rem;
+        padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+        position: relative;
+        text-decoration: none;
+        transition: all 250ms;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        vertical-align: baseline;
+        width: auto;
+    }
+
+    .post-tags a:hover,
+    .post-tags a:focus {
+        border-color: rgba(0, 0, 0, 0.15);
+        box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+        color: rgba(0, 0, 0, 0.65);
+    }
+
+    .post-tags a:hover {
+        transform: translateY(-1px);
+    }
+
+    .post-tags a:active {
+        background-color: #F0F0F1;
+        border-color: rgba(0, 0, 0, 0.15);
+        box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+        color: rgba(0, 0, 0, 0.65);
+        transform: translateY(0);
     }
 </style>
 
 <div class="content">
     <main class="main custom-posts">
 
-        <!-- Форма поиска -->
         <div class="search-form">
             <?php get_search_form(); ?>
         </div>
 
-        <!-- Вывод категорий -->
         <div class="post-categories">
-            <h3>Категории:</h3>
+            <h3>categories:</h3>
             <?php
             $categories = get_categories();
             if ($categories) :
-                echo '<ul>';
+                echo '<p>';
                 foreach ($categories as $category) :
                     echo '<li><a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a></li>';
                 endforeach;
-                echo '</ul>';
+                echo '</p>';
             endif;
             ?>
         </div>
@@ -163,7 +209,6 @@
                             ?>
                         </div>
 
-                        <!-- Вывод тегов для каждого поста -->
                         <div class="post-tags">
                             <?php
                             $tags = get_the_tags();
