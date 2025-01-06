@@ -36,13 +36,14 @@
     .single-post-container .single-post .post-meta {
         position: absolute;
         bottom: 25px;
-        left: 25px;
         color: #fff;
         font-size: 16px;
-        padding: 10px 15px;
+        padding: 15px 40px;
         display: flex;
         gap: 50px;
         z-index: 2;
+        width: 100%;
+        justify-content: space-between;
     }
 
     .single-post-container .single-post .post-meta .post-meta-item {
@@ -54,6 +55,8 @@
     .single-post-container .single-post .post-content {
         font-size: 16px;
         color: #333;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .single-post-container .single-post p {
