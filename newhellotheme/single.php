@@ -10,25 +10,39 @@
     }
 
     .single-post-container .single-post .post-thumbnail {
-        position: relative; /* Для размещения элементов поверх изображения */
+        position: relative;
         margin-bottom: 40px;
+        overflow: hidden;
     }
 
     .single-post-container .single-post .post-thumbnail img {
         width: 100%;
         height: 500px;
-        display: block; /* Убираем отступы для изображений */
+        display: block;
+    }
+
+    .single-post-container .single-post .post-thumbnail::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)); 
+        z-index: 1;
     }
 
     .single-post-container .single-post .post-meta {
-        position: absolute; /* Абсолютное позиционирование */
-        bottom: 10px; /* Расстояние от нижнего края изображения */
-        left: 10px; /* Расстояние от левого края изображения */
-        background: rgba(0, 0, 0, 0.6); /* Полупрозрачный чёрный фон */
-        color: #fff; /* Белый текст */
-        font-size: 14px;
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        color: #fff;
+        font-size: 16px;
         padding: 10px 15px;
         border-radius: 5px;
+        display: flex;
+        gap: 20px;
+        z-index: 2;
     }
 
     .single-post-container .single-post .post-content {
@@ -51,7 +65,7 @@
                 <?php if (has_post_thumbnail()) : ?>
                     <div class="post-thumbnail">
                         <div class="post-meta">
-                            <span>Posted: <?php the_date(); ?></span><br>
+                            <span>Posted: <?php the_date(); ?></span>
                             <span>Author: <?php the_author(); ?></span>
                         </div>
                         <?php the_post_thumbnail('large'); ?>
