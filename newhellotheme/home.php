@@ -170,17 +170,60 @@
         flex-wrap: wrap;
     }
 
+    .centered-search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        background-color: #f9f9f9;
+    }
 
+    .search-box {
+        position: relative;
+        width: 300px;
+    }
+
+    .search-box__input {
+        width: 100%;
+        padding: 12px 40px 12px 16px;
+        font-size: 16px;
+        border: 2px solid #0073aa;
+        border-radius: 50px;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    .search-box__input:focus {
+        border-color: #005f8d;
+        box-shadow: 0 0 8px rgba(0, 115, 170, 0.3);
+    }
+
+    .search-box__icon {
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
+        font-size: 18px;
+        color: #0073aa;
+        pointer-events: none;
+    }
+
+    .search-box__icon:hover {
+        color: #005f8d;
+    }
 </style>
 
 <div class="content">
     <main class="main custom-posts">
 
-        <div class="search-box">
-            <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="search-box__form">
-                <input type="search" class="search-box__input" name="s" placeholder="Search..." onblur="this.value = '';">
-                <i class="search-box__icon fas fa-search"></i>
-            </form>
+        <div class="centered-search">
+            <div class="search-box">
+                <form action="<?php echo esc_url(home_url('/')); ?>" method="get">
+                    <input type="search" class="search-box__input" name="s" placeholder="Search..." required>
+                    <i class="search-box__icon fas fa-search"></i>
+                </form>
+            </div>
         </div>
 
 
