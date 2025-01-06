@@ -118,16 +118,17 @@
             while (have_posts()) : the_post(); ?>
                 <h1><?php the_title(); ?></h1>
 
-                <div class="post-tags">
+                <div class="post-categories">
                     <?php
-                    $tags = get_the_tags();
-                    if ($tags) :
-                        foreach ($tags as $tag) :
-                            echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '">' . esc_html($tag->name) . '</a>';
+                    $categories = get_the_category();
+                    if ($categories) :
+                        foreach ($categories as $category) :
+                            echo '<a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
                         endforeach;
                     endif;
                     ?>
                 </div>
+
 
                 <?php
                 // Display subtitle if it exists
