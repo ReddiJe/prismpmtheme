@@ -170,63 +170,71 @@
         flex-wrap: wrap;
     }
 
-    .search-form {
+    .search-box {
+        position: relative;
+        display: inline-block;
+        width: 80px;
+        transition: width 0.5s ease-in-out;
+    }
+
+    .search-box__form {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 20px;
-    }
-
-    .search-form .box {
         position: relative;
     }
 
-    .search-form .input {
+    .search-box__input {
         padding: 10px;
         width: 80px;
         height: 80px;
         background: none;
-        border: 4px solid #ffd52d;
-        border-radius: 50px;
+        border: 4px solid #093D5F;
+        border-radius: 50%;
         box-sizing: border-box;
         font-family: Comic Sans MS, sans-serif;
-        font-size: 26px;
-        color: #ffd52d;
+        font-size: 20px;
+        color: #093D5F;
         outline: none;
-        transition: 0.5s;
+        transition: width 0.5s ease-in-out, border-radius 0.5s ease-in-out, background 0.5s ease-in-out;
     }
 
-    .search-form .box:hover .input {
-        width: 350px;
+    .search-box:hover .search-box__input {
+        width: 300px;
         background: #3b3640;
         border-radius: 10px;
     }
 
-    .search-form .box i {
+    .search-box__icon {
         position: absolute;
         top: 50%;
-        right: 15px;
-        transform: translate(-50%, -50%);
+        right: 20px;
+        transform: translateY(-50%);
         font-size: 26px;
         color: #093D5F;
-        transition: 0.2s;
+        transition: opacity 0.2s ease-in-out;
+        pointer-events: none;
     }
 
-    .search-form .box:hover i {
+    .search-box:hover .search-box__icon {
         opacity: 0;
-        z-index: -1;
+    }
+
+    .search-box__input:focus {
+        outline: none;
     }
 </style>
 
 <div class="content">
     <main class="main custom-posts">
 
-        <div class="search-form">
-            <div class="box">
-                <input type="search" name="s" class="input" placeholder="Search..." value="<?php echo get_search_query(); ?>">
-                <i class="fas fa-search"></i>
-            </div>
+        <div class="search-box">
+            <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="search-box__form">
+                <input type="search" class="search-box__input" name="s" placeholder="Search..." onblur="this.value = '';">
+                <i class="search-box__icon fas fa-search"></i>
+            </form>
         </div>
+
 
 
         <div class="post-categories">
