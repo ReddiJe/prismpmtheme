@@ -35,14 +35,13 @@
 
     .single-post-container .single-post .post-meta {
         position: absolute;
-        bottom: 15px;
-        left: 15px;
+        bottom: 25px;
+        left: 25px;
         color: #fff;
         font-size: 16px;
         padding: 10px 15px;
-        border-radius: 5px;
         display: flex;
-        gap: 20px;
+        gap: 50px;
         z-index: 2;
     }
 
