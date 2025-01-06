@@ -142,28 +142,27 @@
         flex-wrap: wrap;
     }
 
-    /* Кнопка с эффектом */
     .btn-2 {
         letter-spacing: 0;
         display: inline-block;
         padding: 10px 20px;
         background-color: transparent;
-        border: 1px solid #0073aa;
-        color: #0073aa;
+        border: 1px solid #093D5F;
+        color: #093D5F;
         text-decoration: none;
         position: relative;
         overflow: hidden;
         text-align: center;
         font-weight: bold;
         border-radius: 4px;
-        transition: all 0.3s ease;
+        transition: all 0.4s ease;
     }
 
     .btn-2:hover,
     .btn-2:active {
         letter-spacing: 5px;
         color: #fff;
-        background-color: #0073aa;
+        background-color: #093D5F;
     }
 
     .btn-2:after,
