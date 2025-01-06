@@ -28,8 +28,16 @@
     .custom-posts .post {
         display: flex;
         flex-direction: column;
-        width: calc(33.333% - 20px); /* 3 posts per row */
+        width: calc(33.333% - 20px);
+        /* 3 posts per row */
         margin-bottom: 20px;
+    }
+
+    .custom-posts .post:hover {
+        transform: translateY(-3px);
+        /* Moves the post 2-3px upwards */
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        /* Adds the box-shadow on hover */
     }
 
     .custom-posts .post-thumbnail {
