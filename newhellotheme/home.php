@@ -191,52 +191,27 @@
         flex-wrap: wrap;
     }
 
-    .btn-2 {
-        letter-spacing: 0;
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: transparent;
-        border: 1px solid #093D5F;
+    .custom-posts .post-categories a {
         color: #093D5F;
         text-decoration: none;
         position: relative;
-        overflow: hidden;
-        text-align: center;
-        font-weight: bold;
-        border-radius: 4px;
-        transition: all 0.4s ease;
     }
 
-    .btn-2:hover,
-    .btn-2:active {
-        letter-spacing: 5px;
-        color: #fff;
-        background-color: #093D5F;
-    }
-
-    .btn-2:after,
-    .btn-2:before {
-        content: "";
+    .custom-posts .post-categories a::after {
+        content: '';
         position: absolute;
-        bottom: 0px;
+        bottom: 0;
         left: 50%;
         width: 0;
         height: 2px;
-        background-color: #fff;
-        transition: all 280ms ease-in-out;
+        background-color: #093D5F;
+        transition: all 0.3s ease;
         transform: translateX(-50%);
     }
 
-    .btn-2:hover:after,
-    .btn-2:hover:before {
-        width: 70%;
-        left: 50%;
-    }
-
-    .btn-2:hover:before {
-        bottom: auto;
-        top: 0;
-        width: 70%;
+    .custom-posts .post-categories a:hover::after {
+        width: 100%;
+        left: 0;
     }
 </style>
 
