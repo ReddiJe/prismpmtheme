@@ -19,14 +19,15 @@
 
     .custom-posts .post {
         display: flex;
+        flex-direction: column;
+        width: 400px;
         margin-bottom: 20px;
         margin-top: 20px;
     }
 
     .custom-posts .post-thumbnail {
-        width: 200px;
-        margin-right: 20px;
-        overflow: hidden;
+        width: 100%;
+        height: auto;
     }
 
     .custom-posts .post-thumbnail img {
@@ -35,7 +36,7 @@
     }
 
     .custom-posts .post-content {
-        flex-grow: 1;
+        margin-top: 10px;
     }
 
     .custom-posts .post-title {
@@ -45,6 +46,8 @@
     }
 
     .custom-posts .post-meta {
+        display: flex;
+        justify-content: space-between;
         font-size: 14px;
         color: #777;
     }
@@ -52,12 +55,6 @@
     .custom-posts .post-meta .post-date,
     .custom-posts .post-meta .post-author {
         color: #555;
-    }
-
-    .custom-posts .post-excerpt {
-        font-size: 16px;
-        margin-top: 10px;
-        color: #333;
     }
 
     .custom-posts .pagination {
@@ -234,7 +231,6 @@
     });
 </script>
 
-
 <div class="content">
     <main class="main custom-posts">
 
@@ -246,8 +242,6 @@
                 </form>
             </div>
         </div>
-
-
 
         <div class="post-categories">
             <h3>Categories:</h3>
@@ -277,34 +271,13 @@
                     </div>
 
                     <div class="post-content">
-                        <p class="post-meta">
-                            <span class="post-date"><?php echo get_the_date(); ?></span> |
-                            <span class="post-author"><?php the_author(); ?></span>
-                        </p>
-
                         <h2 class="post-title">
                             <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                         </h2>
 
-                        <div class="post-excerpt">
-                            <?php
-                            $content = get_the_content();
-                            $concept = wp_trim_words($content, 30, '...');
-                            echo $concept;
-                            ?>
-                        </div>
-
-                        <div class="post-tags">
-                            <?php
-                            $tags = get_the_tags();
-                            if ($tags) :
-                                echo '<h3>Tags:</h3><ul>';
-                                foreach ($tags as $tag) :
-                                    echo '<li><a href="' . esc_url(get_tag_link($tag->term_id)) . '">' . esc_html($tag->name) . '</a></li>';
-                                endforeach;
-                                echo '</ul>';
-                            endif;
-                            ?>
+                        <div class="post-meta">
+                            <span class="post-date"><?php echo get_the_date(); ?></span>
+                            <span class="post-author"><?php the_author(); ?></span>
                         </div>
                     </div>
                 </div>
