@@ -4,6 +4,9 @@
     .custom-posts {
         padding-left: 10%;
         padding-right: 10%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
     }
 
     .search-form {
@@ -20,9 +23,8 @@
     .custom-posts .post {
         display: flex;
         flex-direction: column;
-        width: 400px;
+        width: calc(33.33% - 20px); /* 3 posts per row with gap */
         margin-bottom: 20px;
-        margin-top: 20px;
     }
 
     .custom-posts .post-thumbnail {
