@@ -1,11 +1,8 @@
 <?php get_header(); ?>
 
 <style>
-    /* Стили для страницы поста */
     .single-post-container .single-post {
-        padding: 20px;
-        max-width: 800px;
-        margin: 0 auto;
+        padding: 50px 10%;
     }
 
     .single-post-container .single-post h1 {
@@ -16,6 +13,9 @@
         margin-bottom: 20px;
         color: #777;
         font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
     .single-post-container .single-post .post-thumbnail img {
@@ -41,23 +41,19 @@
         <?php
         if (have_posts()) :
             while (have_posts()) : the_post(); ?>
-                <!-- Заголовок поста -->
                 <h1><?php the_title(); ?></h1>
 
-                <!-- Мета-информация -->
                 <div class="post-meta">
-                    <span>Posted: <?php the_date(); ?></span> |
+                    <span>Posted: <?php the_date(); ?></span>
                     <span>Author: <?php the_author(); ?></span>
                 </div>
 
-                <!-- Пост-изображение -->
                 <?php if (has_post_thumbnail()) : ?>
                     <div class="post-thumbnail">
                         <?php the_post_thumbnail('large'); ?>
                     </div>
                 <?php endif; ?>
 
-                <!-- Контент -->
                 <div class="post-content">
                     <?php the_content(); ?>
                 </div>
