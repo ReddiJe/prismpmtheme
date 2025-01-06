@@ -66,6 +66,23 @@
         margin-bottom: 20px;
     }
 
+    .single-post-container .single-post .post-tags {
+        font-size: 16px;
+        margin-top: 20px;
+        color: #555;
+    }
+
+    .single-post-container .single-post .post-tags a {
+        text-decoration: none;
+        color: #093D5F;
+        margin-right: 10px;
+        font-weight: bold;
+    }
+
+    .single-post-container .single-post .post-tags a:hover {
+        text-decoration: underline;
+    }
+
     .all-posts-button-container {
         text-align: center;
         display: flex;
@@ -119,12 +136,22 @@
                                 <span>Written by:</span>
                                 <span><?php the_author(); ?></span>
                             </div>
-
-
                         </div>
                         <?php the_post_thumbnail('large'); ?>
                     </div>
                 <?php endif; ?>
+
+                <!-- Display tags under the title -->
+                <div class="post-tags">
+                    <?php
+                    $tags = get_the_tags();
+                    if ($tags) :
+                        foreach ($tags as $tag) :
+                            echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '">' . esc_html($tag->name) . '</a>';
+                        endforeach;
+                    endif;
+                    ?>
+                </div>
 
                 <div class="post-content">
                     <?php the_content(); ?>
@@ -136,7 +163,6 @@
         <div class="all-posts-button-container">
             <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="all-posts-button">All News</a>
         </div>
-
     </div>
 </div>
 
