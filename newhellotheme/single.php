@@ -3,8 +3,6 @@
 <style>
     .single-post {
         padding: 20px;
-        max-width: 800px;
-        margin: 0 auto;
     }
 
     .single-post h1 {
