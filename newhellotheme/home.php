@@ -161,6 +161,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding-top: 25px;
     }
 
 
@@ -174,9 +175,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
         text-align: center;
-        background-color: #f9f9f9;
     }
 
     .search-box {
@@ -213,6 +212,24 @@
         color: #005f8d;
     }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const searchInput = document.querySelector(".search-box__input");
+        const searchIcon = document.querySelector(".search-box__icon");
+
+        if (searchInput && searchIcon) {
+            searchInput.addEventListener("input", function() {
+                if (this.value.trim() !== "") {
+                    searchIcon.classList.add("hidden");
+                } else {
+                    searchIcon.classList.remove("hidden");
+                }
+            });
+        }
+    });
+</script>
+
 
 <div class="content">
     <main class="main custom-posts">
