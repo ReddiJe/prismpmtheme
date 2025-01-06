@@ -29,7 +29,6 @@
         display: flex;
         flex-direction: column;
         width: calc(33.333% - 20px);
-        /* 3 posts per row */
         margin-bottom: 20px;
         border-radius: 10px;
         transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -37,9 +36,7 @@
 
     .custom-posts .post:hover {
         transform: translateY(-3px);
-        /* Moves the post 2-3px upwards */
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-        /* Adds the box-shadow on hover */
     }
 
     .custom-posts .post-thumbnail {
@@ -138,7 +135,7 @@
 
     .custom-posts .post-categories p {
         display: flex;
-        gap: 10px;
+        gap: 15px;
         flex-wrap: wrap;
     }
 
@@ -162,6 +159,16 @@
     .custom-posts .post-categories a:hover::after {
         width: 100%;
         left: 0;
+    }
+
+    .custom-posts .post-categories a.active-category::after {
+        width: 100%;
+        left: 0;
+        background-color: #093D5F;
+    }
+
+    .custom-posts .post-categories a.active-category {
+        color: #093D5F;
     }
 </style>
 
