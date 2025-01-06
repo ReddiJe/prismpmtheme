@@ -5,10 +5,6 @@
         padding: 50px 10%;
     }
 
-    .single-post-container .single-post h1 {
-        margin-bottom: 20px;
-    }
-
     .single-post-container .single-post .subtitle {
         font-size: 2.25rem;
         color: #666;
@@ -18,6 +14,7 @@
     .single-post-container .single-post .post-thumbnail {
         position: relative;
         margin-bottom: 40px;
+        margin-top: 40px;
         overflow: hidden;
     }
 
@@ -35,7 +32,7 @@
         left: 0;
         width: 100%;
         height: 50%;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
         z-index: 1;
     }
 
