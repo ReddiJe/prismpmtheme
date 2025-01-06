@@ -208,7 +208,7 @@
         right: 15px;
         transform: translate(-50%, -50%);
         font-size: 26px;
-        color: #ffd52d;
+        color: #093D5F;
         transition: 0.2s;
     }
 
