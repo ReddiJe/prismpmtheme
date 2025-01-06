@@ -1,11 +1,14 @@
 <?php get_header(); ?>
 
 <style>
+    .custom-posts {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
     .custom-posts .post {
         display: flex;
         margin-bottom: 20px;
         margin-top: 20px;
-        padd
     }
 
     .custom-posts .post-thumbnail {
@@ -83,33 +86,33 @@
 
 <div class="content">
     <main class="main custom-posts">
-        <?php if ( have_posts() ) : ?>
+        <?php if (have_posts()) : ?>
 
-            <?php while ( have_posts() ) : the_post(); ?>
+            <?php while (have_posts()) : the_post(); ?>
 
                 <div class="post">
                     <div class="post-thumbnail">
-                        <?php if ( has_post_thumbnail() ) : ?>
+                        <?php if (has_post_thumbnail()) : ?>
                             <a href="<?php the_permalink(); ?>">
-                                <?php the_post_thumbnail( 'medium' ); ?>
+                                <?php the_post_thumbnail('medium'); ?>
                             </a>
                         <?php endif; ?>
                     </div>
 
                     <div class="post-content">
-                        <h2 class="post-title">
-                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                        </h2>
-
                         <p class="post-meta">
                             <span class="post-date"><?php echo get_the_date(); ?></span> |
                             <span class="post-author"><?php the_author(); ?></span>
                         </p>
 
+                        <h2 class="post-title">
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        </h2>
+
                         <div class="post-excerpt">
                             <?php
                             $content = get_the_content();
-                            $concept = wp_trim_words( $content, 30, '...' );
+                            $concept = wp_trim_words($content, 30, '...');
                             echo $concept;
                             ?>
                         </div>
@@ -120,17 +123,17 @@
 
             <div class="pagination">
                 <?php
-                    the_posts_pagination( array(
-                        'mid_size'  => 2,
-                        'prev_text' => __('« Previous'),
-                        'next_text' => __('Next »'),
-                    ) );
+                the_posts_pagination(array(
+                    'mid_size'  => 2,
+                    'prev_text' => __('« Previous'),
+                    'next_text' => __('Next »'),
+                ));
                 ?>
             </div>
 
         <?php else : ?>
 
-            <p><?php _e( 'No posts found.', 'your-theme-textdomain' ); ?></p>
+            <p><?php _e('No posts found.', 'your-theme-textdomain'); ?></p>
 
         <?php endif; ?>
     </main>
