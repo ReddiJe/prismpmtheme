@@ -4,6 +4,8 @@
     .custom-posts .post {
         display: flex;
         margin-bottom: 20px;
+        margin-top: 20px;
+        padd
     }
 
     .custom-posts .post-thumbnail {
