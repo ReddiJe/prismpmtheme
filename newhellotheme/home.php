@@ -1,9 +1,19 @@
 <?php get_header(); ?>
 
 <style>
+    /* Стили для добавленных элементов поиска и категорий */
     .custom-posts {
         padding-left: 10%;
         padding-right: 10%;
+    }
+    .search-form {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .search-form input[type="search"] {
+        padding: 8px;
+        width: 60%;
+        font-size: 16px;
     }
     .custom-posts .post {
         display: flex;
@@ -82,10 +92,46 @@
         color: #0073aa;
         text-decoration: underline;
     }
+
+    /* Стиль для категории и тегов */
+    .post-categories, .post-tags {
+        font-size: 14px;
+        color: #555;
+    }
+
+    .post-categories a, .post-tags a {
+        color: #0073aa;
+        text-decoration: none;
+    }
+
+    .post-categories a:hover, .post-tags a:hover {
+        text-decoration: underline;
+    }
 </style>
 
 <div class="content">
     <main class="main custom-posts">
+
+        <!-- Форма поиска -->
+        <div class="search-form">
+            <?php get_search_form(); ?>
+        </div>
+
+        <!-- Вывод категорий -->
+        <div class="post-categories">
+            <h3>Категории:</h3>
+            <?php
+            $categories = get_categories();
+            if ($categories) :
+                echo '<ul>';
+                foreach ($categories as $category) :
+                    echo '<li><a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a></li>';
+                endforeach;
+                echo '</ul>';
+            endif;
+            ?>
+        </div>
+
         <?php if (have_posts()) : ?>
 
             <?php while (have_posts()) : the_post(); ?>
@@ -114,6 +160,20 @@
                             $content = get_the_content();
                             $concept = wp_trim_words($content, 30, '...');
                             echo $concept;
+                            ?>
+                        </div>
+
+                        <!-- Вывод тегов для каждого поста -->
+                        <div class="post-tags">
+                            <?php
+                            $tags = get_the_tags();
+                            if ($tags) :
+                                echo '<h3>Теги:</h3><ul>';
+                                foreach ($tags as $tag) :
+                                    echo '<li><a href="' . esc_url(get_tag_link($tag->term_id)) . '">' . esc_html($tag->name) . '</a></li>';
+                                endforeach;
+                                echo '</ul>';
+                            endif;
                             ?>
                         </div>
                     </div>
