@@ -66,7 +66,13 @@
         margin-bottom: 20px;
     }
 
-    .all-posts-button {
+    .all-posts-button-container {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .all-posts-button-container .all-posts-button {
         text-decoration: none;
         padding: 10px 20px;
         color: #fff;
@@ -80,7 +86,7 @@
         font-size: 16px;
     }
 
-    .all-posts-button:hover {
+    .all-posts-button-container .all-posts-button:hover {
         background-color: #fff;
         color: #093D5F;
         border-color: #093D5F;
@@ -126,8 +132,10 @@
         else : ?>
             <p style="text-align: center; font-size: 18px; color: #999;">Post is not found</p>
         <?php endif; ?>
+        <div class="all-posts-button-container">
+            <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="all-posts-button">All News</a>
+        </div>
 
-        <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="all-posts-button">All News</a>
     </div>
 </div>
 
