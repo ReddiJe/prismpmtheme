@@ -32,8 +32,7 @@
         /* 3 posts per row */
         margin-bottom: 20px;
         border-radius: 10px;
-        transition: transform 0.5s ease, box-shadow 0.5s ease; 
-
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
 
     .custom-posts .post:hover {
@@ -41,6 +40,15 @@
         /* Moves the post 2-3px upwards */
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         /* Adds the box-shadow on hover */
+    }
+
+    /* Make the entire post block clickable */
+    .custom-posts .post a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-decoration: none; /* Removes underline */
+        color: inherit; /* Inherits color from the post */
     }
 
     .custom-posts .post-thumbnail {
@@ -60,12 +68,13 @@
         padding: 0 15px 15px 15px;
         height: 100%;
         justify-content: space-between;
-        }
+    }
 
     .custom-posts .post-title {
         font-size: 24px;
         margin-bottom: 10px;
         color: #333;
+        text-decoration: none; /* Removes underline from title by default */
     }
 
     .custom-posts .post-meta {
@@ -285,24 +294,22 @@
                 <?php while (have_posts()) : the_post(); ?>
 
                     <div class="post">
-                        <div class="post-thumbnail">
-                            <?php if (has_post_thumbnail()) : ?>
-                                <a href="<?php the_permalink(); ?>">
+                        <a href="<?php the_permalink(); ?>">
+                            <div class="post-thumbnail">
+                                <?php if (has_post_thumbnail()) : ?>
                                     <?php the_post_thumbnail('medium'); ?>
-                                </a>
-                            <?php endif; ?>
-                        </div>
-
-                        <div class="post-content">
-                            <h2 class="post-title">
-                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                            </h2>
-
-                            <div class="post-meta">
-                                <span class="post-date"><?php echo get_the_date(); ?></span>
-                                <span class="post-author"><?php the_author(); ?></span>
+                                <?php endif; ?>
                             </div>
-                        </div>
+
+                            <div class="post-content">
+                                <h2 class="post-title"><?php the_title(); ?></h2>
+
+                                <div class="post-meta">
+                                    <span class="post-date"><?php echo get_the_date(); ?></span>
+                                    <span class="post-author"><?php the_author(); ?></span>
+                                </div>
+                            </div>
+                        </a>
                     </div>
 
                 <?php endwhile; ?>
