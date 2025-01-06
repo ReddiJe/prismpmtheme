@@ -9,24 +9,29 @@
         margin-bottom: 20px;
     }
 
-    .single-post-container .single-post .post-meta {
-        margin-bottom: 20px;
-        color: #777;
-        font-size: 14px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+    .single-post-container .single-post .post-thumbnail {
+        position: relative; /* Для размещения элементов поверх изображения */
+        margin-bottom: 40px;
     }
 
     .single-post-container .single-post .post-thumbnail img {
         width: 100%;
-        height: auto;
-        border-radius: 8px;
-        margin-bottom: 20px;
+        height: 500px;
+        display: block; /* Убираем отступы для изображений */
+    }
+
+    .single-post-container .single-post .post-meta {
+        position: absolute; /* Абсолютное позиционирование */
+        bottom: 10px; /* Расстояние от нижнего края изображения */
+        left: 10px; /* Расстояние от левого края изображения */
+        background: rgba(0, 0, 0, 0.6); /* Полупрозрачный чёрный фон */
+        color: #fff; /* Белый текст */
+        font-size: 14px;
+        padding: 10px 15px;
+        border-radius: 5px;
     }
 
     .single-post-container .single-post .post-content {
-        line-height: 1.8;
         font-size: 16px;
         color: #333;
     }
@@ -43,13 +48,12 @@
             while (have_posts()) : the_post(); ?>
                 <h1><?php the_title(); ?></h1>
 
-                <div class="post-meta">
-                    <span>Posted: <?php the_date(); ?></span>
-                    <span>Author: <?php the_author(); ?></span>
-                </div>
-
                 <?php if (has_post_thumbnail()) : ?>
                     <div class="post-thumbnail">
+                        <div class="post-meta">
+                            <span>Posted: <?php the_date(); ?></span><br>
+                            <span>Author: <?php the_author(); ?></span>
+                        </div>
                         <?php the_post_thumbnail('large'); ?>
                     </div>
                 <?php endif; ?>
