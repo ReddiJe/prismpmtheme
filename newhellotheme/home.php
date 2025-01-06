@@ -169,14 +169,65 @@
         gap: 10px;
         flex-wrap: wrap;
     }
+
+    .search-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .search-form .box {
+        position: relative;
+    }
+
+    .search-form .input {
+        padding: 10px;
+        width: 80px;
+        height: 80px;
+        background: none;
+        border: 4px solid #ffd52d;
+        border-radius: 50px;
+        box-sizing: border-box;
+        font-family: Comic Sans MS, sans-serif;
+        font-size: 26px;
+        color: #ffd52d;
+        outline: none;
+        transition: 0.5s;
+    }
+
+    .search-form .box:hover .input {
+        width: 350px;
+        background: #3b3640;
+        border-radius: 10px;
+    }
+
+    .search-form .box i {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translate(-50%, -50%);
+        font-size: 26px;
+        color: #ffd52d;
+        transition: 0.2s;
+    }
+
+    .search-form .box:hover i {
+        opacity: 0;
+        z-index: -1;
+    }
 </style>
 
 <div class="content">
     <main class="main custom-posts">
 
         <div class="search-form">
-            <?php get_search_form(); ?>
+            <div class="box">
+                <input type="search" name="s" class="input" placeholder="Search..." value="<?php echo get_search_query(); ?>">
+                <i class="fas fa-search"></i>
+            </div>
         </div>
+
 
         <div class="post-categories">
             <h3>Categories:</h3>
