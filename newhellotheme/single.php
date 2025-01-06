@@ -118,6 +118,17 @@
             while (have_posts()) : the_post(); ?>
                 <h1><?php the_title(); ?></h1>
 
+                <div class="post-tags">
+                    <?php
+                    $tags = get_the_tags();
+                    if ($tags) :
+                        foreach ($tags as $tag) :
+                            echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '">' . esc_html($tag->name) . '</a>';
+                        endforeach;
+                    endif;
+                    ?>
+                </div>
+
                 <?php
                 // Display subtitle if it exists
                 $subtitle = get_post_meta(get_the_ID(), 'subtitle', true);
@@ -140,18 +151,6 @@
                         <?php the_post_thumbnail('large'); ?>
                     </div>
                 <?php endif; ?>
-
-                <!-- Display tags under the title -->
-                <div class="post-tags">
-                    <?php
-                    $tags = get_the_tags();
-                    if ($tags) :
-                        foreach ($tags as $tag) :
-                            echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '">' . esc_html($tag->name) . '</a>';
-                        endforeach;
-                    endif;
-                    ?>
-                </div>
 
                 <div class="post-content">
                     <?php the_content(); ?>
