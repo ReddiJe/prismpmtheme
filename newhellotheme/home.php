@@ -211,6 +211,10 @@
     .search-box__icon:hover {
         color: #005f8d;
     }
+
+    .hidden {
+        display: none;
+    }
 </style>
 
 <script>
