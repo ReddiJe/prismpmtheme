@@ -170,70 +170,57 @@
         flex-wrap: wrap;
     }
 
-    .search-box {
-        position: relative;
-        display: inline-block;
-        width: 80px;
-        transition: width 0.5s ease-in-out;
-    }
-
-    .search-box__form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .search-container {
         position: relative;
     }
 
-    .search-box__input {
+    .search-input {
         padding: 10px;
         width: 80px;
         height: 80px;
         background: none;
-        border: 4px solid #093D5F;
-        border-radius: 50%;
+        border: 4px solid #ffd52d;
+        border-radius: 50px;
         box-sizing: border-box;
         font-family: Comic Sans MS, sans-serif;
-        font-size: 20px;
-        color: #093D5F;
+        font-size: 26px;
+        color: #ffd52d;
         outline: none;
-        transition: width 0.5s ease-in-out, border-radius 0.5s ease-in-out, background 0.5s ease-in-out;
+        transition: 0.5s;
     }
 
-    .search-box:hover .search-box__input {
-        width: 300px;
+    .search-container:hover .search-input {
+        width: 350px;
         background: #3b3640;
         border-radius: 10px;
     }
 
-    .search-box__icon {
+    .search-icon {
         position: absolute;
         top: 50%;
-        right: 20px;
-        transform: translateY(-50%);
+        right: 15px;
+        transform: translate(-50%, -50%);
         font-size: 26px;
-        color: #093D5F;
-        transition: opacity 0.2s ease-in-out;
-        pointer-events: none;
+        color: #ffd52d;
+        transition: 0.2s;
     }
 
-    .search-box:hover .search-box__icon {
+    .search-container:hover .search-icon {
         opacity: 0;
-    }
-
-    .search-box__input:focus {
-        outline: none;
+        z-index: -1;
     }
 </style>
 
 <div class="content">
     <main class="main custom-posts">
 
-        <div class="search-box">
-            <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="search-box__form">
-                <input type="search" class="search-box__input" name="s" placeholder="Search..." onblur="this.value = '';">
-                <i class="search-box__icon fas fa-search"></i>
+        <div class="search-container">
+            <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="search-form">
+                <input class="search-input" type="search" name="s" placeholder="Search..." required>
+                <i class="search-icon fas fa-search"></i>
             </form>
         </div>
+
 
 
 
