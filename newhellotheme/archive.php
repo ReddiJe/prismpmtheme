@@ -1,20 +1,6 @@
 <?php get_header(); ?>
 
 <div class="archive">
-    <h1>
-        <?php
-        if (is_category()) {
-            single_cat_title();
-        } elseif (is_tag()) {
-            single_tag_title();
-        } elseif (is_date()) {
-            echo 'Archive for ' . get_the_date('F Y');
-        } else {
-            echo 'Archive';
-        }
-        ?>
-    </h1>
-
     <?php
     if (have_posts()) :
         while (have_posts()) : the_post(); ?>

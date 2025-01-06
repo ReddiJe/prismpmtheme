@@ -70,6 +70,7 @@
         text-align: center;
         display: flex;
         justify-content: center;
+        margin-top: 50px;
     }
 
     .all-posts-button-container .all-posts-button {
