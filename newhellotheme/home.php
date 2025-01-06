@@ -4,9 +4,6 @@
     .custom-posts {
         padding-left: 10%;
         padding-right: 10%;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
     }
 
     .search-form {
@@ -20,10 +17,18 @@
         font-size: 16px;
     }
 
+    .post-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
     .custom-posts .post {
         display: flex;
         flex-direction: column;
-        width: calc(33.33% - 20px); /* 3 posts per row with gap */
+        width: calc(33.333% - 20px); /* 3 posts per row */
         margin-bottom: 20px;
     }
 
@@ -163,7 +168,6 @@
         padding-top: 25px;
     }
 
-
     .custom-posts .post-categories p {
         display: flex;
         gap: 10px;
@@ -259,48 +263,51 @@
             ?>
         </div>
 
-        <?php if (have_posts()) : ?>
+        <div class="post-grid">
+            <?php if (have_posts()) : ?>
 
-            <?php while (have_posts()) : the_post(); ?>
+                <?php while (have_posts()) : the_post(); ?>
 
-                <div class="post">
-                    <div class="post-thumbnail">
-                        <?php if (has_post_thumbnail()) : ?>
-                            <a href="<?php the_permalink(); ?>">
-                                <?php the_post_thumbnail('medium'); ?>
-                            </a>
-                        <?php endif; ?>
-                    </div>
+                    <div class="post">
+                        <div class="post-thumbnail">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php the_post_thumbnail('medium'); ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
 
-                    <div class="post-content">
-                        <h2 class="post-title">
-                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                        </h2>
+                        <div class="post-content">
+                            <h2 class="post-title">
+                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            </h2>
 
-                        <div class="post-meta">
-                            <span class="post-date"><?php echo get_the_date(); ?></span>
-                            <span class="post-author"><?php the_author(); ?></span>
+                            <div class="post-meta">
+                                <span class="post-date"><?php echo get_the_date(); ?></span>
+                                <span class="post-author"><?php the_author(); ?></span>
+                            </div>
                         </div>
                     </div>
+
+                <?php endwhile; ?>
+
+                <div class="pagination">
+                    <?php
+                    the_posts_pagination(array(
+                        'mid_size'  => 2,
+                        'prev_text' => __('« Previous'),
+                        'next_text' => __('Next »'),
+                    ));
+                    ?>
                 </div>
 
-            <?php endwhile; ?>
+            <?php else : ?>
 
-            <div class="pagination">
-                <?php
-                the_posts_pagination(array(
-                    'mid_size'  => 2,
-                    'prev_text' => __('« Previous'),
-                    'next_text' => __('Next »'),
-                ));
-                ?>
-            </div>
+                <p><?php _e('No posts found.', 'your-theme-textdomain'); ?></p>
 
-        <?php else : ?>
+            <?php endif; ?>
+        </div>
 
-            <p><?php _e('No posts found.', 'your-theme-textdomain'); ?></p>
-
-        <?php endif; ?>
     </main>
 </div>
 
