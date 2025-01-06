@@ -107,11 +107,6 @@
         text-decoration: none;
     }
 
-    .post-categories a:hover,
-    .post-tags a:hover {
-        text-decoration: underline;
-    }
-
     .button-4 {
         appearance: none;
         background-color: #FAFBFC;
