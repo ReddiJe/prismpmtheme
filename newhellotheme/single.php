@@ -65,6 +65,22 @@
     .single-post-container .single-post p {
         margin-bottom: 20px;
     }
+
+    .all-posts-button {
+        display: inline-block;
+        background-color: #0073aa;
+        color: #fff;
+        padding: 15px 30px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 30px;
+    }
+
+    .all-posts-button:hover {
+        background-color: #005f8f;
+    }
 </style>
 
 <div class="single-post-container">
@@ -106,6 +122,8 @@
         else : ?>
             <p style="text-align: center; font-size: 18px; color: #999;">Post is not found</p>
         <?php endif; ?>
+
+        <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="all-posts-button">All News</a>
     </div>
 </div>
 
