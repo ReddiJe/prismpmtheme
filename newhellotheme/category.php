@@ -129,7 +129,7 @@
 
     .post-categories a.active-category {
         color: #fff;
-        background-color: #0073aa;
+        background-color: #093D5F;
         padding: 5px 10px;
         border-radius: 5px;
         text-decoration: none;
@@ -137,55 +137,6 @@
 
     .post-categories a.active-category:hover {
         background-color: #005f8d;
-    }
-
-    .button-4 {
-        appearance: none;
-        background-color: #FAFBFC;
-        border: 1px solid rgba(27, 31, 35, 0.15);
-        border-radius: 6px;
-        box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
-        box-sizing: border-box;
-        color: #24292E;
-        cursor: pointer;
-        display: inline-block;
-        font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 20px;
-        list-style: none;
-        padding: 6px 16px;
-        position: relative;
-        transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        vertical-align: middle;
-        white-space: nowrap;
-        word-wrap: break-word;
-    }
-
-    .button-4:hover {
-        background-color: #F3F4F6;
-        text-decoration: none;
-        transition-duration: 0.1s;
-    }
-
-    .button-4:disabled {
-        background-color: #FAFBFC;
-        border-color: rgba(27, 31, 35, 0.15);
-        color: #959DA5;
-        cursor: default;
-    }
-
-    .button-4:active {
-        background-color: #EDEFF2;
-        box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
-        transition: none 0s;
-    }
-
-    .button-4:focus {
-        outline: 1px transparent;
     }
 
     .custom-posts .post-categories {
@@ -202,80 +153,49 @@
         flex-wrap: wrap;
     }
 
-    .centered-search {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    .search-box {
-        position: relative;
-        width: 300px;
-    }
-
-    .search-box__input {
-        width: 100%;
-        padding: 12px 40px 12px 16px;
-        font-size: 16px;
-        border: 2px solid #0073aa;
-        border-radius: 50px;
+    .button-55 {
+        align-self: center;
+        background-color: #fff;
+        background-image: none;
+        background-position: 0 90%;
+        background-repeat: repeat no-repeat;
+        background-size: 4px 3px;
+        border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+        border-style: solid;
+        border-width: 2px;
+        box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+        box-sizing: border-box;
+        color: #41403e;
+        cursor: pointer;
+        display: inline-block;
+        font-family: Neucha, sans-serif;
+        font-size: 1rem;
+        line-height: 23px;
         outline: none;
-        transition: 0.3s;
+        padding: .75rem;
+        text-decoration: none;
+        transition: all 235ms ease-in-out;
+        border-bottom-left-radius: 15px 255px;
+        border-bottom-right-radius: 225px 15px;
+        border-top-left-radius: 255px 15px;
+        border-top-right-radius: 15px 225px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
     }
 
-    .search-box__input:focus {
-        border-color: #005f8d;
-        box-shadow: 0 0 8px rgba(0, 115, 170, 0.3);
+    .button-55:hover {
+        box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+        transform: translate3d(0, 2px, 0);
     }
 
-    .search-box__icon {
-        position: absolute;
-        top: 50%;
-        right: 16px;
-        transform: translateY(-50%);
-        font-size: 18px;
-        color: #0073aa;
-        pointer-events: none;
-    }
-
-    .search-box__icon:hover {
-        color: #005f8d;
-    }
-
-    .hidden {
-        display: none;
+    .button-55:focus {
+        box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
     }
 </style>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const searchInput = document.querySelector(".search-box__input");
-        const searchIcon = document.querySelector(".search-box__icon");
-
-        if (searchInput && searchIcon) {
-            searchInput.addEventListener("input", function() {
-                if (this.value.trim() !== "") {
-                    searchIcon.classList.add("hidden");
-                } else {
-                    searchIcon.classList.remove("hidden");
-                }
-            });
-        }
-    });
-</script>
-
 <div class="content">
     <main class="main custom-posts">
-
-        <div class="centered-search">
-            <div class="search-box">
-                <form action="<?php echo esc_url(home_url('/')); ?>" method="get">
-                    <input type="search" class="search-box__input" name="s" placeholder="Search..." required>
-                    <i class="search-box__icon fas fa-search"></i>
-                </form>
-            </div>
-        </div>
 
         <div class="post-categories">
             <h3>Categories:</h3>
@@ -284,9 +204,8 @@
             if ($categories) :
                 echo '<p>';
                 foreach ($categories as $category) :
-                    // Check if this category is the current one
                     $class = (is_category($category->term_id)) ? 'active-category' : '';
-                    echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="button-4 ' . $class . '">' . esc_html($category->name) . '</a> ';
+                    echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="button-55 ' . $class . '">' . esc_html($category->name) . '</a> ';
                 endforeach;
                 echo '</p>';
             endif;
