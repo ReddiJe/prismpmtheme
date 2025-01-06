@@ -67,19 +67,23 @@
     }
 
     .all-posts-button {
-        display: inline-block;
-        background-color: #0073aa;
-        color: #fff;
-        padding: 15px 30px;
-        font-size: 16px;
-        text-align: center;
         text-decoration: none;
-        border-radius: 5px;
-        margin-top: 30px;
+        padding: 10px 20px;
+        color: #fff;
+        background-color: #093D5F;
+        display: inline-block;
+        font-family: "Graphik Medium", Sans-serif;
+        font-size: 12px;
+        font-weight: normal;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        font-size: 16px;
     }
 
     .all-posts-button:hover {
-        background-color: #005f8f;
+        background-color: #fff;
+        color: #093D5F;
+        border-color: #093D5F;
     }
 </style>
 
