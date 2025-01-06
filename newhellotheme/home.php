@@ -157,7 +157,6 @@
         height: 2px;
         background-color: #093D5F;
         transition: width 0.3s ease, left 0.3s ease;
-        transform: translateX(-50%);
     }
 
     .custom-posts .post-categories a:hover::after {
