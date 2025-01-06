@@ -200,12 +200,12 @@
     .custom-posts .post-categories a::after {
         content: '';
         position: absolute;
-        bottom: 0;
+        bottom: -2px;
         left: 50%;
         width: 0;
         height: 2px;
         background-color: #093D5F;
-        transition: all 0.3s ease;
+        transition: width 0.3s ease, left 0.3s ease;
         transform: translateX(-50%);
     }
 
