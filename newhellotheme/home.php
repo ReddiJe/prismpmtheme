@@ -191,80 +191,57 @@
         flex-wrap: wrap;
     }
 
-    .centered-search {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    .search-box {
+    .btn-2 {
+        letter-spacing: 0;
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: transparent;
+        border: 1px solid #093D5F;
+        color: #093D5F;
+        text-decoration: none;
         position: relative;
-        width: 300px;
+        overflow: hidden;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 4px;
+        transition: all 0.4s ease;
     }
 
-    .search-box__input {
-        width: 100%;
-        padding: 12px 40px 12px 16px;
-        font-size: 16px;
-        border: 2px solid #0073aa;
-        border-radius: 50px;
-        outline: none;
-        transition: 0.3s;
+    .btn-2:hover,
+    .btn-2:active {
+        letter-spacing: 5px;
+        color: #fff;
+        background-color: #093D5F;
     }
 
-    .search-box__input:focus {
-        border-color: #005f8d;
-        box-shadow: 0 0 8px rgba(0, 115, 170, 0.3);
-    }
-
-    .search-box__icon {
+    .btn-2:after,
+    .btn-2:before {
+        content: "";
         position: absolute;
-        top: 50%;
-        right: 16px;
-        transform: translateY(-50%);
-        font-size: 18px;
-        color: #0073aa;
-        pointer-events: none;
+        bottom: 0px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: #fff;
+        transition: all 280ms ease-in-out;
+        transform: translateX(-50%);
     }
 
-    .search-box__icon:hover {
-        color: #005f8d;
+    .btn-2:hover:after,
+    .btn-2:hover:before {
+        width: 70%;
+        left: 50%;
     }
 
-    .hidden {
-        display: none;
+    .btn-2:hover:before {
+        bottom: auto;
+        top: 0;
+        width: 70%;
     }
 </style>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const searchInput = document.querySelector(".search-box__input");
-        const searchIcon = document.querySelector(".search-box__icon");
-
-        if (searchInput && searchIcon) {
-            searchInput.addEventListener("input", function() {
-                if (this.value.trim() !== "") {
-                    searchIcon.classList.add("hidden");
-                } else {
-                    searchIcon.classList.remove("hidden");
-                }
-            });
-        }
-    });
-</script>
-
 <div class="content">
     <main class="main custom-posts">
-
-        <div class="centered-search">
-            <div class="search-box">
-                <form action="<?php echo esc_url(home_url('/')); ?>" method="get">
-                    <input type="search" class="search-box__input" name="s" placeholder="Search..." required>
-                    <i class="search-box__icon fas fa-search"></i>
-                </form>
-            </div>
-        </div>
 
         <div class="post-categories">
             <h3>Categories:</h3>
@@ -273,7 +250,7 @@
             if ($categories) :
                 echo '<p>';
                 foreach ($categories as $category) :
-                    echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="button-4">' . esc_html($category->name) . '</a> ';
+                    echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="btn-2">' . esc_html($category->name) . '</a> ';
                 endforeach;
                 echo '</p>';
             endif;
