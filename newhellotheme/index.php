@@ -1,52 +1,91 @@
 <?php get_header(); ?>
 
 <style>
-    /* Стили для макета новости */
-    .post {
+    .custom-posts .post {
         display: flex;
         margin-bottom: 20px;
     }
 
-    .post-thumbnail {
+    .custom-posts .post-thumbnail {
         width: 200px;
         margin-right: 20px;
         overflow: hidden;
     }
 
-    .post-thumbnail img {
+    .custom-posts .post-thumbnail img {
         width: 100%;
         height: auto;
     }
 
-    .post-content {
+    .custom-posts .post-content {
         flex-grow: 1;
     }
 
-    .post-title {
+    .custom-posts .post-title {
         font-size: 24px;
         margin-bottom: 10px;
+        color: #333;
     }
 
-    .post-meta {
+    .custom-posts .post-meta {
         font-size: 14px;
+        color: #777;
+    }
+
+    .custom-posts .post-meta .post-date,
+    .custom-posts .post-meta .post-author {
         color: #555;
     }
 
-    .post-excerpt {
+    .custom-posts .post-excerpt {
         font-size: 16px;
         margin-top: 10px;
+        color: #333;
+    }
+
+    .custom-posts .pagination {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .custom-posts .pagination .page-numbers {
+        display: inline-block;
+        margin: 0 5px;
+        padding: 8px 16px;
+        background-color: #f0f0f0;
+        color: #333;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+
+    .custom-posts .pagination .page-numbers.current {
+        background-color: #0073aa;
+        color: #fff;
+    }
+
+    .custom-posts .pagination .page-numbers:hover {
+        background-color: #005f8d;
+        color: #fff;
+    }
+
+    .custom-posts .post-title a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .custom-posts .post-title a:hover {
+        color: #0073aa;
+        text-decoration: underline;
     }
 </style>
 
 <div class="content">
-    <main class="main">
+    <main class="main custom-posts">
         <?php if ( have_posts() ) : ?>
 
-            <!-- Начало цикла вывода постов -->
             <?php while ( have_posts() ) : the_post(); ?>
 
                 <div class="post">
-                    <!-- Изображение -->
                     <div class="post-thumbnail">
                         <?php if ( has_post_thumbnail() ) : ?>
                             <a href="<?php the_permalink(); ?>">
@@ -55,7 +94,6 @@
                         <?php endif; ?>
                     </div>
 
-                    <!-- Контент -->
                     <div class="post-content">
                         <h2 class="post-title">
                             <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
@@ -66,11 +104,10 @@
                             <span class="post-author"><?php the_author(); ?></span>
                         </p>
 
-                        <!-- Concept (обрезка текста до 150 символов) -->
                         <div class="post-excerpt">
                             <?php
                             $content = get_the_content();
-                            $concept = wp_trim_words( $content, 30, '...' ); // 30 слов - это примерно 150 символов
+                            $concept = wp_trim_words( $content, 30, '...' );
                             echo $concept;
                             ?>
                         </div>
@@ -79,7 +116,6 @@
 
             <?php endwhile; ?>
 
-            <!-- Пагинация -->
             <div class="pagination">
                 <?php
                     the_posts_pagination( array(
