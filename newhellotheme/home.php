@@ -31,6 +31,7 @@
         width: calc(33.333% - 20px);
         /* 3 posts per row */
         margin-bottom: 20px;
+        border-radius: 10px;
     }
 
     .custom-posts .post:hover {
@@ -48,10 +49,11 @@
     .custom-posts .post-thumbnail img {
         width: 100%;
         height: auto;
+        border-radius: 10px;
     }
 
     .custom-posts .post-content {
-        margin-top: 10px;
+        padding: 15px;
     }
 
     .custom-posts .post-title {
