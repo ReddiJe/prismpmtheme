@@ -68,7 +68,8 @@
 
     .single-post-container .single-post .post-categories {
         display: flex;
-        gap: 10px;
+        gap: 15px;
+        padding: 10px;
     }
 
     .single-post-container .single-post .post-categories a {
@@ -146,6 +147,28 @@
         background-color: #fff;
         color: #093D5F;
         border-color: #093D5F;
+    }
+
+    .single-post .post-categories a {
+        color: #093D5F;
+        text-decoration: none;
+        position: relative;
+    }
+
+    .single-post .post-categories a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background-color: #093D5F;
+        transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    .single-post .post-categories a:hover::after {
+        width: 100%;
+        left: 0;
     }
 </style>
 
