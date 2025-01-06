@@ -17,8 +17,9 @@
 
     .single-post-container .single-post .post-thumbnail img {
         width: 100%;
-        height: 500px;
+        height: 550px;
         display: block;
+        object-fit: cover;
     }
 
     .single-post-container .single-post .post-thumbnail::before {
@@ -28,7 +29,7 @@
         left: 0;
         width: 100%;
         height: 50%;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)); 
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
         z-index: 1;
     }
 
@@ -43,6 +44,12 @@
         display: flex;
         gap: 20px;
         z-index: 2;
+    }
+
+    .single-post-container .single-post .post-meta .post-meta-item {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
     }
 
     .single-post-container .single-post .post-content {
@@ -65,8 +72,16 @@
                 <?php if (has_post_thumbnail()) : ?>
                     <div class="post-thumbnail">
                         <div class="post-meta">
-                            <span>Posted: <?php the_date(); ?></span>
-                            <span>Author: <?php the_author(); ?></span>
+                            <div class="post-meta-item">
+                                <span>Published on: </span>
+                                <span><?php the_date(); ?></span>
+                            </div>
+                            <div class="post-meta-item">
+                                <span>Written by:</span>
+                                <span><?php the_author(); ?></span>
+                            </div>
+
+
                         </div>
                         <?php the_post_thumbnail('large'); ?>
                     </div>
