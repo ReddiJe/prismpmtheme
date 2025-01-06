@@ -32,6 +32,8 @@
         /* 3 posts per row */
         margin-bottom: 20px;
         border-radius: 10px;
+        transition: transform 0.5s ease, box-shadow 0.5s ease; 
+
     }
 
     .custom-posts .post:hover {
@@ -53,8 +55,12 @@
     }
 
     .custom-posts .post-content {
-        padding: 15px;
-    }
+        display: flex;
+        flex-direction: column;
+        padding: 0 15px 15px 15px;
+        height: 100%;
+        justify-content: space-between;
+        }
 
     .custom-posts .post-title {
         font-size: 24px;
