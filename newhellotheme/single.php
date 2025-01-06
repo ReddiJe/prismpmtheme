@@ -66,20 +66,20 @@
         margin-bottom: 20px;
     }
 
-    .single-post-container .single-post .post-tags {
+    .single-post-container .single-post .post-categories {
         font-size: 16px;
         margin-top: 20px;
         color: #555;
     }
 
-    .single-post-container .single-post .post-tags a {
+    .single-post-container .single-post .post-categories a {
         text-decoration: none;
         color: #093D5F;
         margin-right: 10px;
         font-weight: bold;
     }
 
-    .single-post-container .single-post .post-tags a:hover {
+    .single-post-container .single-post .post-categories a:hover {
         text-decoration: underline;
     }
 
