@@ -1,20 +1,22 @@
 <?php get_header(); ?>
 
 <style>
-    /* Стили для добавленных элементов поиска и категорий */
     .custom-posts {
         padding-left: 10%;
         padding-right: 10%;
     }
+
     .search-form {
         text-align: center;
         margin-bottom: 20px;
     }
+
     .search-form input[type="search"] {
         padding: 8px;
         width: 60%;
         font-size: 16px;
     }
+
     .custom-posts .post {
         display: flex;
         margin-bottom: 20px;
@@ -93,21 +95,23 @@
         text-decoration: underline;
     }
 
-    .post-categories, .post-tags {
+    .post-categories,
+    .post-tags {
         font-size: 16px;
         color: #555;
     }
 
-    .post-categories a, .post-tags a {
+    .post-categories a,
+    .post-tags a {
         color: #2c2d2c;
         text-decoration: none;
     }
 
-    .post-categories a:hover, .post-tags a:hover {
+    .post-categories a:hover,
+    .post-tags a:hover {
         text-decoration: underline;
     }
 
-    /* Стиль для кнопок категорий */
     .button-4 {
         appearance: none;
         background-color: #FAFBFC;
@@ -156,6 +160,20 @@
     .button-4:focus {
         outline: 1px transparent;
     }
+
+    .custom-posts .post-categories {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .custom-posts .post-categories p {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
 </style>
 
 <div class="content">
@@ -172,7 +190,6 @@
             if ($categories) :
                 echo '<p>';
                 foreach ($categories as $category) :
-                    // Выводим каждую категорию как кнопку
                     echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="button-4">' . esc_html($category->name) . '</a> ';
                 endforeach;
                 echo '</p>';
