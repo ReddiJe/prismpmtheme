@@ -9,6 +9,12 @@
         margin-bottom: 20px;
     }
 
+    .single-post-container .single-post .subtitle {
+        font-size: 2.25rem;
+        color: #666;
+        margin-bottom: 30px;
+    }
+
     .single-post-container .single-post .post-thumbnail {
         position: relative;
         margin-bottom: 40px;
@@ -29,7 +35,7 @@
         left: 0;
         width: 100%;
         height: 50%;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
         z-index: 1;
     }
 
@@ -70,6 +76,13 @@
         if (have_posts()) :
             while (have_posts()) : the_post(); ?>
                 <h1><?php the_title(); ?></h1>
+
+                <?php
+                // Display subtitle if it exists
+                $subtitle = get_post_meta(get_the_ID(), 'subtitle', true);
+                if ($subtitle) : ?>
+                    <div class="subtitle"><?php echo esc_html($subtitle); ?></div>
+                <?php endif; ?>
 
                 <?php if (has_post_thumbnail()) : ?>
                     <div class="post-thumbnail">
