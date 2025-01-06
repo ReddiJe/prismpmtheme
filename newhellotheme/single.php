@@ -32,7 +32,7 @@
         left: 0;
         width: 100%;
         height: 50%;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
         z-index: 1;
     }
 
