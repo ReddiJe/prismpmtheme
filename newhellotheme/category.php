@@ -183,7 +183,7 @@
                 echo '<p>';
                 foreach ($categories as $category) :
                     $class = (is_category($category->term_id)) ? 'active-category' : '';
-                    echo '<a href="' . esc_url(get_category_link($category->term_id)) . '"' . $class . '">' . esc_html($category->name) . '</a> ';
+                    echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="' . $class . '">' . esc_html($category->name) . '</a> ';
                 endforeach;
                 echo '</p>';
             endif;
