@@ -155,7 +155,7 @@
                                 <span>Published on: </span>
                                 <span><?php the_date(); ?></span>
                             </div>
-                            <div class="post-meta-item">
+                            <div class="post-meta-item" style="display: none;">
                                 <span>Written by:</span>
                                 <span><?php the_author(); ?></span>
                             </div>
