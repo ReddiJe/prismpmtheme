@@ -38,9 +38,7 @@
 
     .custom-posts .post:hover {
         transform: translateY(-3px);
-        /* Moves the post 2-3px upwards */
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-        /* Adds the box-shadow on hover */
     }
 
     .custom-posts .post-thumbnail {
@@ -50,7 +48,7 @@
 
     .custom-posts .post-thumbnail img {
         width: 100%;
-        height: auto;
+        height: 225px;
         border-radius: 10px;
     }
 
@@ -163,6 +161,19 @@
         width: 100%;
         left: 0;
     }
+
+    @media (max-width: 1024px) {
+    .custom-posts .post {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .custom-posts .post {
+        width: 100%;
+    }
+}
+
 </style>
 
 <div class="content">
