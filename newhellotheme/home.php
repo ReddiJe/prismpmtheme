@@ -179,18 +179,20 @@
     <main class="main custom-posts">
 
         <div class="post-categories">
-            <h3>Categories:</h3>
             <?php
             $categories = get_categories();
-            if ($categories) :
-                echo '<p>';
-                foreach ($categories as $category) :
-                    echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="btn-2">' . esc_html($category->name) . '</a> ';
-                endforeach;
-                echo '</p>';
-            endif;
-            ?>
+            if ($categories && count($categories) > 1) : ?>
+                <h3>Categories:</h3>
+                <p>
+                    <?php foreach ($categories as $category) : ?>
+                        <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="btn-2">
+                            <?php echo esc_html($category->name); ?>
+                        </a>
+                    <?php endforeach; ?>
+                </p>
+            <?php endif; ?>
         </div>
+
 
         <div class="post-grid">
             <?php if (have_posts()) : ?>
