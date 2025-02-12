@@ -162,6 +162,10 @@
         left: 0;
     }
 
+    .custom-posts .post-author {
+        display: none;
+    }
+
     @media (max-width: 1024px) {
         .custom-posts .post {
             width: calc(50% - 20px);
@@ -216,7 +220,7 @@
 
                                 <div class="post-meta">
                                     <span class="post-date"><?php echo get_the_date(); ?></span>
-                                    <span class="post-author"><?php the_author(); ?></span>
+                                    <span class="post-author" style="display: none;"><?php the_author(); ?></span>
                                 </div>
                             </div>
                         </a>
