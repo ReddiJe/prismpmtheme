@@ -46,7 +46,7 @@
 
     .custom-posts .post-thumbnail img {
         width: 100%;
-        height: auto;
+        height: 225px;
         border-radius: 10px;
     }
 
@@ -169,6 +169,18 @@
 
     .custom-posts .post-categories a.active-category {
         color: #093D5F;
+    }
+
+    @media (max-width: 1024px) {
+        .custom-posts .post {
+            width: calc(50% - 20px);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .custom-posts .post {
+            width: 100%;
+        }
     }
 </style>
 

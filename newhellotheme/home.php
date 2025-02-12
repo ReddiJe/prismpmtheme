@@ -163,17 +163,16 @@
     }
 
     @media (max-width: 1024px) {
-    .custom-posts .post {
-        width: calc(50% - 20px);
+        .custom-posts .post {
+            width: calc(50% - 20px);
+        }
     }
-}
 
-@media (max-width: 768px) {
-    .custom-posts .post {
-        width: 100%;
+    @media (max-width: 768px) {
+        .custom-posts .post {
+            width: 100%;
+        }
     }
-}
-
 </style>
 
 <div class="content">
