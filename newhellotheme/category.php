@@ -236,7 +236,14 @@
 
                 <?php endwhile; ?>
 
-                <div class="pagination">
+            <?php else : ?>
+
+                <p><?php _e('No posts found.', 'your-theme-textdomain'); ?></p>
+
+            <?php endif; ?>
+        </div>
+
+        <div class="pagination">
                     <?php
                     the_posts_pagination(array(
                         'mid_size'  => 2,
@@ -245,13 +252,6 @@
                     ));
                     ?>
                 </div>
-
-            <?php else : ?>
-
-                <p><?php _e('No posts found.', 'your-theme-textdomain'); ?></p>
-
-            <?php endif; ?>
-        </div>
 
     </main>
 </div>
