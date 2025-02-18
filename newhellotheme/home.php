@@ -136,7 +136,7 @@
 
     .custom-posts .post-categories p {
         display: flex;
-        gap: 10px;
+        gap: 25px;
         flex-wrap: wrap;
     }
 
