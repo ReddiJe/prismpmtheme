@@ -228,21 +228,23 @@
 
                 <?php endwhile; ?>
 
-                <div class="pagination">
-                    <?php
-                    the_posts_pagination(array(
-                        'mid_size'  => 2,
-                        'prev_text' => __('« Previous'),
-                        'next_text' => __('Next »'),
-                    ));
-                    ?>
-                </div>
+
 
             <?php else : ?>
 
                 <p><?php _e('No posts found.', 'your-theme-textdomain'); ?></p>
 
             <?php endif; ?>
+        </div>
+
+        <div class="pagination">
+            <?php
+            the_posts_pagination(array(
+                'mid_size'  => 2,
+                'prev_text' => __('« Previous'),
+                'next_text' => __('Next »'),
+            ));
+            ?>
         </div>
 
     </main>
