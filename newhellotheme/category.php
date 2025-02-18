@@ -21,7 +21,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
-        justify-content: space-between;
+        justify-content: flex-start;
         margin-top: 20px;
     }
 
